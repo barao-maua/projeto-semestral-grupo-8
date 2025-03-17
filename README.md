@@ -51,3 +51,13 @@ A estrutura do banco de dados contém as seguintes entidades principais:
 💊 Suplementacao: Sugestões de suplementação vinculadas às orientações
 
 💧 ConsumoAgua: Registro do consumo de água diário
+
+📄 Licença
+
+Este projeto é licenciado sob a Licença MIT - veja o arquivo LICENSE para mais detalhes.
+
+📌 Equipe
+
+👨‍💻 Mateus
+👨‍💻 Felipe
+👨‍💻 Rafael
