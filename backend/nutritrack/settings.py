@@ -39,8 +39,11 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework',
     'corsheaders',
-    'main_app'
+    'main_app',
 ]
+
+AUTH_USER_MODEL = 'main_app.User'  # <- AQUI
+
 
 MIDDLEWARE = [
     'corsheaders.middleware.CorsMiddleware',
