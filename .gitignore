@@ -1,0 +1,34 @@
+# Python
+*.pyc
+__pycache__/
+*.pyo
+*.pyd
+
+# Virtual Env
+env/
+venv/
+ENV/
+*.env
+*.env.*
+
+# VSCode
+.vscode/
+
+# Django
+db.sqlite3
+*.log
+staticfiles/
+media/
+
+# Node/Vite
+node_modules/
+dist/
+build/
+
+# System
+.DS_Store
+Thumbs.db
+
+# PostgreSQL backup
+*.dump
+*.sql
