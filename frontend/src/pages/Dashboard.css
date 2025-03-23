@@ -1,0 +1,24 @@
+/* Dashboard.css */
+
+/* Contêiner principal da Dashboard */
+.dashboard-container {
+    display: flex;              /* Organiza os elementos em um flex container */
+    flex-direction: column;     /* Coloca os elementos na vertical */
+    align-items: center;        /* Centraliza horizontalmente */
+    justify-content: center;    /* Centraliza verticalmente */
+    margin-top: 50px;           /* Espaçamento superior */
+  }
+  
+  /* Título principal (h2) */
+  .dashboard-container h2 {
+    font-size: 24px;            /* Tamanho da fonte */
+    margin-bottom: 16px;        /* Espaçamento inferior */
+  }
+  
+  /* Texto ou parágrafos dentro da Dashboard */
+  .dashboard-container p {
+    font-size: 16px;
+    color: #555;                /* Cor de texto em tom de cinza */
+    text-align: center;         /* Centraliza o texto */
+  }
+  
