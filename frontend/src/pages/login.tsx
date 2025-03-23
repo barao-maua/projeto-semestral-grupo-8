@@ -1,4 +1,4 @@
-// frontend/src/pages/login.tsx
+
 import React, { useState } from "react";
 import "./login.css";
 import { login } from "../services/auth";

@@ -1,9 +1,9 @@
-// frontend/src/services/suplementacoes.ts
+
 
 export interface Suplementacao {
     id: number;
     nome: string;
-    // Adicione outros campos conforme sua modelagem (descrição, dose, etc.)
+    
   }
   
   export async function fetchSuplementacoes(): Promise<Suplementacao[]> {

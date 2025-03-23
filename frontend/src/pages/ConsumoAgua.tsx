@@ -1,4 +1,4 @@
-// frontend/src/pages/ConsumoAgua.tsx
+
 import React, { useEffect, useState } from "react";
 import { fetchConsumoAgua, ConsumoAgua } from "../services/consumoAgua";
 

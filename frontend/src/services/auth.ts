@@ -1,5 +1,5 @@
 
-// frontend/src/services/auth.ts
+
 export async function login(username: string, password: string): Promise<void> {
     try {
       const response = await fetch("http://localhost:8000/api/token/", {

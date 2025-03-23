@@ -1,11 +1,11 @@
-// Defina a interface que reflete os dados retornados pelo backend
+
 export interface Orientacao {
     id: number;
     titulo: string;
-    // adicione outros campos conforme sua modelagem no backend
+    
   }
   
-  // Função para buscar as orientações do endpoint protegido
+  
   export async function fetchOrientacoes(): Promise<Orientacao[]> {
     const token = localStorage.getItem("accessToken");
     if (!token) {

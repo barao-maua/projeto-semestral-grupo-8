@@ -1,14 +1,11 @@
-// frontend/src/services/refeicoes.ts
 
-// 1. Defina a interface com base na resposta do seu backend.
-//    Ajuste os campos conforme o que realmente vem no JSON.
 export interface Refeicao {
     id: number;
     nome: string;
     // acrescente outros campos conforme a sua modelagem
   }
   
-  // 2. Função que faz a requisição ao endpoint usando o token JWT
+  // Função que faz a requisição ao endpoint usando o token JWT
   export async function fetchRefeicoes(): Promise<Refeicao[]> {
     const token = localStorage.getItem("accessToken");
     if (!token) {
