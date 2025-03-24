@@ -1,109 +1,231 @@
-/* FONDO GERAL: ocupa toda a tela */
+
 .refeicoes-page {
-    background-color: #ffffff;  
-    min-height: 100vh;         
-    width: 100%;               
-    display: flex;
-    flex-direction: column;    
-    align-items: center;       
-    justify-content: flex-start; 
-    padding-top: 20px;         
-    box-sizing: border-box;    
+  background-color: #ffffff; 
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding-top: 20px;
+  box-sizing: border-box;
+  font-family: "Inter", sans-serif;
+}
+
+.conteudo-refeicoes {
+  max-width: 600px;
+  width: 100%;
+  padding: 0 20px 40px;
+  box-sizing: border-box;
+}
+
+
+.secao-header {
+  margin-bottom: 16px;
+}
+
+.titulo-secao {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #2d4a22;
+  margin-top: 24px;
+  margin-bottom: 8px;
+  text-align: left;
+}
+
+.titulo-linha {
+  height: 3px;
+  width: 40px;
+  background-color: #2d4a22;
+  border-radius: 2px;
+}
+
+
+.lista-refeicoes {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 25px 0;
+}
+
+.refeicao-item {
+  background-color: #ffffff;
+  border: 1px solid #e0e0e0;
+  border-radius: 12px;
+  margin-bottom: 12px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
+  overflow: hidden;
+  transition: all 0.2s ease;
+}
+
+.refeicao-item:hover {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
+  transform: translateY(-2px);
+}
+
+.refeicao-header {
+  display: flex;
+  align-items: center;
+  padding: 16px;
+  cursor: pointer;
+  position: relative;
+}
+
+.refeicao-icon {
+  margin-right: 16px;
+}
+
+.icon-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  background-color: white;
+  border-radius: 50%;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.refeicao-info {
+  flex: 1;
+}
+
+.refeicao-horario-container {
+  display: flex;
+  align-items: center;
+  margin-bottom: 4px;
+}
+
+.horario-icon {
+  width: 14px;
+  height: 14px;
+  margin-right: 4px;
+  color: #666;
+}
+
+.refeicao-horario-texto {
+  font-size: 0.85rem;
+  color: #666;
+  font-weight: 500;
+}
+
+.refeicao-nome {
+  font-weight: 600;
+  font-size: 1.1rem;
+  color: #333;
+  margin-bottom: 4px;
+}
+
+.refeicao-descricao {
+  font-size: 0.9rem;
+  color: #555;
+}
+
+.refeicao-chevron {
+  color: #2d4a22;
+}
+
+.refeicao-detalhes {
+  padding: 0 16px 16px 72px;
+  font-size: 0.9rem;
+  color: #555;
+  line-height: 1.5;
+  animation: fadeIn 0.3s ease;
+}
+
+
+.lista-orientacoes {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.orientacao-item {
+  background-color: #f2fff2; 
+  border: 1px solid #cde5cd;
+  border-radius: 12px;
+  margin-bottom: 12px;
+  overflow: hidden;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
+  transition: all 0.2s ease;
+}
+
+.orientacao-item:hover {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
+}
+
+.orientacao-header {
+  display: flex;
+  align-items: center;
+  padding: 14px 16px;
+  cursor: pointer;
+}
+
+.orientacao-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  background-color: rgba(45, 74, 34, 0.1);
+  border-radius: 50%;
+  margin-right: 12px;
+  color: #2d4a22;
+}
+
+.orientacao-titulo {
+  flex: 1;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #2d4a22; 
+}
+
+.orientacao-chevron {
+  color: #2d4a22;
+}
+
+.orientacao-detalhes {
+  padding: 0 16px 16px 60px;
+  font-size: 0.9rem;
+  color: #333;  
+  line-height: 1.5;
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
   }
-  
-  
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsividade */
+@media (max-width: 480px) {
   .conteudo-refeicoes {
-    max-width: 600px;    
-    width: 100%;         
-    padding: 0 20px;     
-    box-sizing: border-box;
+    padding: 0 16px 32px;
   }
-  
-  /* Título de cada seção */
-  .titulo-secao {
-    font-size: 1.2rem;
-    font-weight: 600;
-    color: #2d4a22;
-    margin-top: 10px;
-    margin-bottom: 15px;
-    text-align: left;
+
+  .refeicao-header {
+    padding: 12px;
   }
-  
-  
-  .lista-refeicoes {
-    list-style-type: none;
-    padding: 0;
-    margin: 0 0 25px 0;
+
+  .icon-container {
+    width: 36px;
+    height: 36px;
   }
-  
-  .refeicao-item {
-    display: flex;
-    align-items: center;
-    background-color: #f9fff6;  
-    border: 1px solid #e0f2dc;
-    border-radius: 8px;
-    margin-bottom: 12px;
-    padding: 10px;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.06);
+
+  .refeicao-detalhes {
+    padding: 0 12px 12px 64px;
   }
-  
-  .refeicao-icon {
-    margin-right: 12px;
+
+  .orientacao-header {
+    padding: 12px;
   }
-  
-  .refeicao-icon img {
-    width: 35px;
-    height: 35px;
+
+  .orientacao-detalhes {
+    padding: 0 12px 12px 56px;
   }
-  
-  .refeicao-info {
-    display: flex;
-    flex-direction: column;
-  }
-  
-  .refeicao-horario {
-    font-weight: 600;
-    color: #2d4a22;
-    margin-bottom: 4px;
-    font-size: 0.95rem;
-  }
-  
-  .refeicao-descricao {
-    font-size: 0.85rem;
-    color: #555;
-  }
-  
-  
-  .lista-orientacoes {
-    list-style-type: none;
-    padding: 0;
-    margin: 0;
-  }
-  
-  .orientacao-item {
-    display: flex;
-    align-items: center;
-    background-color: #f2fff2; 
-    border: 1px solid #cde5cd;
-    border-radius: 8px;
-    margin-bottom: 12px;
-    padding: 10px;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.06);
-  }
-  
-  .orientacao-icon {
-    margin-right: 10px;
-  }
-  
-  .orientacao-icon img {
-    width: 25px;
-    height: 25px;
-  }
-  
-  
-  .orientacao-texto {
-    font-size: 0.95rem;
-    font-weight: 500;
-    color: #000; 
-  }
-  
+}
