@@ -1,13 +1,14 @@
 
 import { useState } from "react";
 import { Clock, ChevronDown, ChevronUp, Sun, Coffee, Sunset, Moon, Info } from "lucide-react";
+import NavBar from "../components/NavBar"; // Importa o componente NavBar
 import "./Refeicoes.css";
 
 interface Refeicao {
   horario: string;
   nome: string;
   descricao: string;
-  detalhes: string; 
+  detalhes: string;
 }
 
 // Dados estáticos para as refeições
@@ -76,6 +77,9 @@ export default function Refeicoes() {
 
   return (
     <div className="refeicoes-page">
+      {/* Componente NavBar inserido aqui */}
+      <NavBar />
+
       <div className="conteudo-refeicoes">
         <header className="secao-header">
           <h2 className="titulo-secao">Refeições</h2>
@@ -146,4 +150,5 @@ export default function Refeicoes() {
     </div>
   );
 }
+
 
