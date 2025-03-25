@@ -1,53 +1,226 @@
 
+:root {
+  --primary: #2d4a22;
+  --primary-light: #3a5f2c;
+  --primary-dark: #1e3216;
+  --primary-transparent: rgba(45, 74, 34, 0.05);
+  --accent: #8bc34a;
+  --accent-light: #a4d967;
+  --white: #ffffff;
+  --light-gray: #f8f9fa;
+  --gray: #e9ecef;
+  --dark-gray: #495057;
+  --text: #333333;
+  --text-light: #6c757d;
+  --shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.05);
+  --border-radius: 12px;
+  --transition: all 0.3s ease;
+}
+
+/* Estilos base */
 .sobre-page {
-    background-color: #ffffff; /* Fundo branco */
-    min-height: 100vh;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding-top: 20px;
-    box-sizing: border-box;
-    font-family: "Inter", sans-serif;
-  }
-  
- 
+  background-color: var(--light-gray);
+  min-height: 100vh;
+  width: 100%;
+  box-sizing: border-box;
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans",
+    "Helvetica Neue", sans-serif;
+  color: var(--text);
+  line-height: 1.6;
+}
+
+.conteudo-sobre {
+  max-width: 900px;
+  width: 90%;
+  margin: 0 auto;
+  padding: 40px 20px;
+}
+
+/* Cabeçalho */
+.sobre-header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.titulo-sobre {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--primary);
+  margin-bottom: 16px;
+  letter-spacing: -0.5px;
+}
+
+.linha-sobre {
+  height: 4px;
+  width: 80px;
+  background-color: var(--accent);
+  margin: 0 auto;
+  border-radius: 2px;
+}
+
+/* Cards */
+.sobre-cards {
+  display: grid;
+  gap: 30px;
+  margin-bottom: 40px;
+}
+
+.sobre-card {
+  background-color: var(--white);
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow-sm);
+  overflow: hidden;
+  transition: var(--transition);
+  display: flex;
+  padding: 24px;
+}
+
+.sobre-card:hover {
+  box-shadow: var(--shadow);
+  transform: translateY(-4px);
+}
+
+.card-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 60px;
+  height: 60px;
+  background-color: var(--primary-transparent);
+  border-radius: 50%;
+  margin-right: 20px;
+  color: var(--primary);
+  flex-shrink: 0;
+}
+
+.card-content {
+  flex: 1;
+}
+
+.sobre-card h3 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--primary);
+  margin-bottom: 12px;
+  margin-top: 0;
+}
+
+.sobre-card p {
+  font-size: 1rem;
+  color: var(--text);
+  margin: 0;
+}
+
+/* Timeline */
+.timeline {
+  position: relative;
+  margin-top: 20px;
+}
+
+.timeline-item {
+  display: flex;
+  margin-bottom: 24px;
+  position: relative;
+}
+
+.timeline-item:last-child {
+  margin-bottom: 0;
+}
+
+.timeline-item::before {
+  content: "";
+  position: absolute;
+  left: 8px;
+  top: 24px;
+  bottom: -24px;
+  width: 2px;
+  background-color: var(--gray);
+  z-index: 0;
+}
+
+.timeline-item:last-child::before {
+  display: none;
+}
+
+.timeline-marker {
+  width: 36px;
+  height: 36px;
+  background-color: var(--accent-light);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 16px;
+  position: relative;
+  z-index: 1;
+  color: var(--primary-dark);
+  flex-shrink: 0;
+}
+
+.timeline-content {
+  flex: 1;
+  padding-top: 4px;
+}
+
+.timeline-content h4 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--primary);
+  margin: 0 0 6px 0;
+}
+
+.timeline-content p {
+  margin: 0;
+  color: var(--text-light);
+}
+
+/* Footer */
+.sobre-footer {
+  text-align: center;
+  margin-top: 60px;
+  padding-top: 20px;
+  border-top: 1px solid var(--gray);
+  color: var(--text-light);
+  font-size: 0.9rem;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
   .conteudo-sobre {
-    max-width: 600px;
-    width: 100%;
-    padding: 0 20px 40px;
-    box-sizing: border-box;
+    padding: 30px 16px;
   }
-  
-  
-  .sobre-header {
+
+  .titulo-sobre {
+    font-size: 2rem;
+  }
+
+  .sobre-card {
+    flex-direction: column;
+    padding: 20px;
+  }
+
+  .card-icon {
+    margin-right: 0;
     margin-bottom: 16px;
   }
-  
-  
-  .titulo-sobre {
-    font-size: 1.5rem;
-    font-weight: 700;
-    color: #2d4a22; 
-    margin-top: 24px;
-    margin-bottom: 8px;
-    text-align: left;
-  }
-  
-  
-  .linha-sobre {
-    height: 3px;
-    width: 40px;
-    background-color: #2d4a22;
-    border-radius: 2px;
+
+  .timeline-item {
     margin-bottom: 20px;
   }
-  
-  
-  .texto-sobre {
-    font-size: 1rem;
-    line-height: 1.5;
-    color: #333;
-    text-align: justify;
+
+  .timeline-marker {
+    width: 30px;
+    height: 30px;
   }
-  
+}
+
+@media (max-width: 480px) {
+  .titulo-sobre {
+    font-size: 1.8rem;
+  }
+
+  .sobre-card h3 {
+    font-size: 1.3rem;
+  }
+}

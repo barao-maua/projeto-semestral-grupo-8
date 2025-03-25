@@ -1,7 +1,7 @@
 
 import { useState } from "react";
 import { Clock, ChevronDown, ChevronUp, Sun, Coffee, Sunset, Moon, Info } from "lucide-react";
-import NavBar from "../components/NavBar"; // Importa o componente NavBar
+import NavBar from "../components/NavBar"; 
 import "./Refeicoes.css";
 
 interface Refeicao {
