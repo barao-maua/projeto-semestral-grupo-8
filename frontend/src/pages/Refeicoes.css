@@ -1,6 +1,5 @@
-
 .refeicoes-page {
-  background-color: #ffffff; 
+  background-color: #ffffff;
   min-height: 100vh;
   width: 100%;
   display: flex;
@@ -18,7 +17,6 @@
   padding: 0 20px 40px;
   box-sizing: border-box;
 }
-
 
 .secao-header {
   margin-bottom: 16px;
@@ -39,7 +37,6 @@
   background-color: #2d4a22;
   border-radius: 2px;
 }
-
 
 .lista-refeicoes {
   list-style: none;
@@ -67,7 +64,6 @@
   align-items: center;
   padding: 16px;
   cursor: pointer;
-  position: relative;
 }
 
 .refeicao-icon {
@@ -132,6 +128,122 @@
   animation: fadeIn 0.3s ease;
 }
 
+.alimento-item {
+  margin-bottom: 12px;
+}
+
+.alimento-item p {
+  margin: 2px 0 8px;
+  color: #444;
+  font-size: 0.9rem;
+}
+
+.alimento-item strong {
+  color: #111;
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+.alimento-item hr {
+  border: none;
+  border-top: 1px solid #eee;
+  margin-top: 10px;
+}
+
+.btn-substituicao {
+  display: inline-block;
+  background-color: #2d4a22;
+  color: #fff;
+  font-size: 0.85rem;
+  padding: 6px 14px;
+  border-radius: 20px;
+  border: none;
+  cursor: pointer;
+  margin-top: 6px;
+}
+
+.btn-substituicao:hover {
+  background-color: #365d2a;
+}
+
+.modal-substituicao {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.35);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.modal-conteudo {
+  background-color: #ffffff;
+  border-radius: 16px;
+  padding: 24px 20px;
+  width: 90%;
+  max-width: 400px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+  animation: fadeIn 0.25s ease;
+  position: relative;
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 18px;
+}
+
+.modal-header h3 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #2d4a22;
+  margin: 0;
+}
+
+.modal-header button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #2d4a22;
+  font-size: 1.2rem;
+  padding: 0;
+}
+
+.modal-lista {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.modal-item {
+  background-color: #f7f7f7;
+  border-radius: 10px;
+  padding: 12px 16px;
+  margin-bottom: 12px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
+  transition: background-color 0.2s ease;
+}
+
+.modal-item:hover {
+  background-color: #f0f0f0;
+}
+
+.modal-item strong {
+  display: block;
+  font-size: 0.95rem;
+  color: #333;
+  margin-bottom: 4px;
+}
+
+.modal-item p {
+  font-size: 0.85rem;
+  color: #555;
+  margin: 0;
+}
 
 .lista-orientacoes {
   list-style: none;
@@ -140,7 +252,7 @@
 }
 
 .orientacao-item {
-  background-color: #f2fff2; 
+  background-color: #f2fff2;
   border: 1px solid #cde5cd;
   border-radius: 12px;
   margin-bottom: 12px;
@@ -176,7 +288,7 @@
   flex: 1;
   font-size: 1rem;
   font-weight: 600;
-  color: #2d4a22; 
+  color: #2d4a22;
 }
 
 .orientacao-chevron {
@@ -185,10 +297,53 @@
 
 .orientacao-detalhes {
   padding: 0 16px 16px 60px;
-  font-size: 0.9rem;
-  color: #333;  
-  line-height: 1.5;
+  font-size: 0.92rem;
+  color: #333;
+  line-height: 1.6;
   animation: fadeIn 0.3s ease;
+  background-color: #ffffff;
+  border-radius: 8px;
+  margin: 8px 12px 12px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  white-space: pre-wrap;
+}
+
+.orientacao-detalhes p {
+  margin: 0 0 8px;
+  font-size: 0.92rem;
+  color: #333;
+}
+
+.orientacao-detalhes b,
+.orientacao-detalhes strong {
+  color: #2d4a22;
+}
+
+.orientacao-detalhes em {
+  font-style: italic;
+  color: #444;
+}
+
+.orientacao-detalhes a {
+  color: #2d4a22;
+  text-decoration: underline;
+}
+
+.orientacao-detalhes .cupom {
+  display: inline-block;
+  background-color: #ffe7b3;
+  color: #333;
+  padding: 2px 6px;
+  border-radius: 6px;
+  font-weight: 600;
+  margin-left: 6px;
+}
+
+.orientacao-detalhes .assinatura {
+  font-style: italic;
+  color: #666;
+  margin-top: 12px;
+  display: block;
 }
 
 @keyframes fadeIn {
@@ -202,7 +357,6 @@
   }
 }
 
-/* Responsividade */
 @media (max-width: 480px) {
   .conteudo-refeicoes {
     padding: 0 16px 32px;
@@ -227,5 +381,31 @@
 
   .orientacao-detalhes {
     padding: 0 12px 12px 56px;
+  }
+
+  .btn-substituicao {
+    width: 100%;
+    text-align: center;
+  }
+
+  .modal-conteudo {
+    width: 90%;
+    padding: 20px 16px;
+  }
+
+  .modal-header h3 {
+    font-size: 1rem;
+  }
+
+  .modal-item {
+    padding: 10px 14px;
+  }
+
+  .modal-item strong {
+    font-size: 0.9rem;
+  }
+
+  .modal-item p {
+    font-size: 0.8rem;
   }
 }
