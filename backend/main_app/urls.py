@@ -6,7 +6,7 @@ from .views import (
     RefeicaoViewSet,
     OrientacaoViewSet,
     SuplementacaoViewSet,
-    ConsumoAguaViewSet
+    ConsumoAguaViewSet,
 )
 
 router = DefaultRouter()

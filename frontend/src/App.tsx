@@ -1,14 +1,16 @@
-
 import React, { ReactNode } from "react";
 import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
 
+// Páginas
 import Login from "./pages/login";
 import Refeicoes from "./pages/Refeicoes";
+import FormRefeicao from "./pages/FormRefeicao";
 import Orientacoes from "./pages/Orientacoes";
 import Suplementacoes from "./pages/Suplementacoes";
 import ConsumoAgua from "./pages/ConsumoAgua";
 import Sobre from "./pages/Sobre";
 
+// Componente para proteger rotas privadas
 type PrivateRouteProps = {
   children: ReactNode;
 };
@@ -22,10 +24,10 @@ const App: React.FC = () => {
   return (
     <Router>
       <Routes>
-        {/* Rota de Login */}
+        {/* Rota pública de login */}
         <Route path="/login" element={<Login />} />
 
-        {/* Rota principal ("/") -> Refeicoes */}
+        {/* Rotas privadas */}
         <Route
           path="/"
           element={
@@ -34,8 +36,6 @@ const App: React.FC = () => {
             </PrivateRoute>
           }
         />
-
-        {/* Rota para /refeicoes -> Refeicoes */}
         <Route
           path="/refeicoes"
           element={
@@ -44,7 +44,14 @@ const App: React.FC = () => {
             </PrivateRoute>
           }
         />
-
+        <Route
+          path="/nova-refeicao"
+          element={
+            <PrivateRoute>
+              <FormRefeicao />
+            </PrivateRoute>
+          }
+        />
         <Route
           path="/orientacoes"
           element={
@@ -69,8 +76,6 @@ const App: React.FC = () => {
             </PrivateRoute>
           }
         />
-
-        {/* Rota para a página Sobre */}
         <Route
           path="/sobre"
           element={

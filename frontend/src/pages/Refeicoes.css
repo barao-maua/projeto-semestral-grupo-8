@@ -409,3 +409,13 @@
     font-size: 0.8rem;
   }
 }
+.refeicao-horario-container {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.horario-icon {
+  width: 16px;
+  height: 16px;
+}

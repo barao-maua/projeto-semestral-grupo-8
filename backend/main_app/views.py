@@ -17,17 +17,17 @@ User = get_user_model()
 class UserViewSet(viewsets.ModelViewSet):
     queryset = User.objects.all()
     serializer_class = UserSerializer
-    permission_classes = [AllowAny]  
+    permission_classes = [AllowAny]  # ✅ necessário para o form
 
 class TipoRefeicaoViewSet(viewsets.ModelViewSet):
     queryset = TipoRefeicao.objects.all()
     serializer_class = TipoRefeicaoSerializer
-    permission_classes = [IsAuthenticated]
+    permission_classes = [AllowAny]  # ✅ necessário para o form
 
 class RefeicaoViewSet(viewsets.ModelViewSet):
     queryset = Refeicao.objects.all()
     serializer_class = RefeicaoSerializer
-    permission_classes = [AllowAny]  
+    permission_classes = [IsAuthenticated]
 
 class OrientacaoViewSet(viewsets.ModelViewSet):
     queryset = Orientacao.objects.all()
