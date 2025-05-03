@@ -17,7 +17,7 @@ User = get_user_model()
 class UserViewSet(viewsets.ModelViewSet):
     queryset = User.objects.all()
     serializer_class = UserSerializer
-    permission_classes = [AllowAny]  # Para testes iniciais, depois mude para IsAuthenticated
+    permission_classes = [AllowAny]  
 
 class TipoRefeicaoViewSet(viewsets.ModelViewSet):
     queryset = TipoRefeicao.objects.all()
@@ -27,7 +27,7 @@ class TipoRefeicaoViewSet(viewsets.ModelViewSet):
 class RefeicaoViewSet(viewsets.ModelViewSet):
     queryset = Refeicao.objects.all()
     serializer_class = RefeicaoSerializer
-    permission_classes = [IsAuthenticated]
+    permission_classes = [AllowAny]  
 
 class OrientacaoViewSet(viewsets.ModelViewSet):
     queryset = Orientacao.objects.all()
