@@ -1,8 +1,17 @@
 from rest_framework import serializers
 from django.contrib.auth import get_user_model
-from .models import TipoRefeicao, Refeicao, Orientacao, Suplementacao, ConsumoAgua
+from .models import (
+    TipoRefeicao,
+    Refeicao,
+    Orientacao,
+    Suplementacao,
+    ConsumoAgua,
+    Alimento,
+    Substituicao
+)
 
 User = get_user_model()
+
 
 class UserSerializer(serializers.ModelSerializer):
     password = serializers.CharField(write_only=True)
@@ -20,29 +29,53 @@ class UserSerializer(serializers.ModelSerializer):
         )
         return user
 
+
 class TipoRefeicaoSerializer(serializers.ModelSerializer):
     class Meta:
         model = TipoRefeicao
         fields = ['id', 'nome']
 
+
+class SubstituicaoSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Substituicao
+        fields = ['id', 'opcao', 'quantidade', 'unidade']
+
+
+class AlimentoSerializer(serializers.ModelSerializer):
+    substituicoes = SubstituicaoSerializer(many=True, read_only=True)
+
+    class Meta:
+        model = Alimento
+        fields = ['id', 'nome', 'quantidade', 'unidade', 'substituicoes']
+
+
 class RefeicaoSerializer(serializers.ModelSerializer):
     tipo_refeicao = TipoRefeicaoSerializer(read_only=True)
-    tipo_refeicao_id = serializers.PrimaryKeyRelatedField(queryset=TipoRefeicao.objects.all(), source='tipo_refeicao', write_only=True)
+    tipo_refeicao_id = serializers.PrimaryKeyRelatedField(
+        queryset=TipoRefeicao.objects.all(),
+        source='tipo_refeicao',
+        write_only=True
+    )
+    alimentos = AlimentoSerializer(many=True, read_only=True)
 
     class Meta:
         model = Refeicao
-        fields = ['id', 'usuario', 'horario', 'descricao', 'tipo_refeicao', 'tipo_refeicao_id']
+        fields = ['id', 'usuario', 'horario', 'descricao', 'tipo_refeicao', 'tipo_refeicao_id', 'alimentos']
+
 
 class SuplementacaoSerializer(serializers.ModelSerializer):
     class Meta:
         model = Suplementacao
-        fields = ['id', 'orientacao', 'texto']  # corrigido de 'descricao' para 'texto'
+        fields = ['id', 'orientacao', 'texto']
+
 
 class ConsumoAguaSerializer(serializers.ModelSerializer):
     class Meta:
         model = ConsumoAgua
-        fields = ['id', 'orientacao', 'texto'] 
-        
+        fields = ['id', 'orientacao', 'texto']
+
+
 class OrientacaoSerializer(serializers.ModelSerializer):
     suplementacoes = SuplementacaoSerializer(many=True, read_only=True)
     consumo_agua = ConsumoAguaSerializer(read_only=True)

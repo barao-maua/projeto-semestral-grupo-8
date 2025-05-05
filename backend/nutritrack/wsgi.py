@@ -1,5 +1,5 @@
 """
-WSGI config for NUTRITRACK project.
+WSGI config for nutritrack project.
 
 It exposes the WSGI callable as a module-level variable named ``application``.
 

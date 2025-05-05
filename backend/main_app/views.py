@@ -2,7 +2,13 @@ from rest_framework import viewsets
 from rest_framework.permissions import IsAuthenticated, AllowAny
 from django.contrib.auth import get_user_model
 
-from .models import TipoRefeicao, Refeicao, Orientacao, Suplementacao, ConsumoAgua
+from .models import (
+    TipoRefeicao,
+    Refeicao,
+    Orientacao,
+    Suplementacao,
+    ConsumoAgua,
+)
 from .serializers import (
     UserSerializer,
     TipoRefeicaoSerializer,
@@ -14,32 +20,57 @@ from .serializers import (
 
 User = get_user_model()
 
+
 class UserViewSet(viewsets.ModelViewSet):
     queryset = User.objects.all()
     serializer_class = UserSerializer
-    permission_classes = [AllowAny]  # ✅ necessário para o form
+    permission_classes = [AllowAny]
+
 
 class TipoRefeicaoViewSet(viewsets.ModelViewSet):
     queryset = TipoRefeicao.objects.all()
     serializer_class = TipoRefeicaoSerializer
-    permission_classes = [AllowAny]  # ✅ necessário para o form
+    permission_classes = [AllowAny]
+
 
 class RefeicaoViewSet(viewsets.ModelViewSet):
-    queryset = Refeicao.objects.all()
     serializer_class = RefeicaoSerializer
     permission_classes = [IsAuthenticated]
 
+    def get_queryset(self):
+        return (
+            Refeicao.objects
+            .select_related("tipo_refeicao", "usuario")
+            .prefetch_related("alimentos__substituicoes")
+            .filter(usuario=self.request.user)
+            .order_by("horario")
+        )
+
+
 class OrientacaoViewSet(viewsets.ModelViewSet):
-    queryset = Orientacao.objects.all()
     serializer_class = OrientacaoSerializer
     permission_classes = [IsAuthenticated]
 
+    def get_queryset(self):
+        return (
+            Orientacao.objects
+            .filter(usuario=self.request.user)
+            .prefetch_related("suplementacoes")
+            .select_related("consumo_agua")
+        )
+
+
 class SuplementacaoViewSet(viewsets.ModelViewSet):
-    queryset = Suplementacao.objects.all()
     serializer_class = SuplementacaoSerializer
     permission_classes = [IsAuthenticated]
 
+    def get_queryset(self):
+        return Suplementacao.objects.select_related("orientacao")
+
+
 class ConsumoAguaViewSet(viewsets.ModelViewSet):
-    queryset = ConsumoAgua.objects.all()
     serializer_class = ConsumoAguaSerializer
     permission_classes = [IsAuthenticated]
+
+    def get_queryset(self):
+        return ConsumoAgua.objects.select_related("orientacao")
