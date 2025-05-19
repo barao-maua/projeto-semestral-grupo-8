@@ -10,3 +10,15 @@ Outro ponto, não vi commits do Rafael, procurem dividir para todos atuarem nas 
 
 Dicas
 - Ajustem o gitignore para incluir tanto o a parte do django qto do react na raiz do projeto (tem outro gitginroe do django soh na pasta do back)
+
+## E3
+Fala Pessoal Blz?? segue avaliação
+- Models (3): tudo certo, algumas dicas:
+	- Se o tipo refeição for "Almoço", "Janta",  "Desjejum", "Lanche" poderiam ser `TextChoices` (Enum) do Django no lugar de um model
+- Admin (1): 
+	- Tudo certo
+- Autenticação (2):  Ok
+	- Só melhoraria a checagem do token no front, abstraindo essa parte no service auth para nao precisar fazer isso em todos os fetchs
+	- Não vi o uso do refresh token no projeto
+- Views com Models (4): tudo certo
+-  Geral: tem alguns arquivos ali na raiz que na ofazem mto sentido, parecem ser de versao antiga, manage.py, package.json
